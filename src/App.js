@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MiniDrawer from './Components/MiniDrawer';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//import About from './Components/About';
+//import Contact from './Components/Contact';
+import Home from './Components/Home';
+import NavBar from './Components/NavBar';
+//import cards from './Components/cards';
+import Footer from './Components/Footer';
+import Politics from './Components/Politics';
+import berlin from './Components/berlin';
+import profile from './Components/profile';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+  <div>
+    <MiniDrawer/>
+    <NavBar/>
+    <Switch>
+      <Route path="/home" exact component={Home}/>
+      <Route path="/politics" component={Politics}/>
+      <Route path="/berlin" component={berlin}/>
+      <Route path="/profile" component={profile}/>
+      
+      
+     
+    </Switch>
+    
+    <Footer/>
+  </div>
+  </Router>
   );
 }
 
